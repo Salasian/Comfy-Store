@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Navbar, Sidebar, Footer } from "./components";
 
 import {
@@ -20,27 +20,23 @@ function App() {
       <Router>
         <Navbar />
         <Sidebar />
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/about">
-            <About />
-          </Route>
-          <Route exact path="/cart">
-            <Cart />
-          </Route>
-          <Route exact path="/products">
-            <Products />
-          </Route>
-          <Route exact path="/products/:id" children={<SingleProduct />} />
-          <PrivateRoute exact path="/checkout">
-            <Checkout />
-          </PrivateRoute>
-          <Route path="*">
-            <Error />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/about" element={<About />} />
+          <Route exact path="/cart" element={<Cart />} />
+          <Route exact path="/products" element={<Products />} />
+          <Route exact path="/products/:id" element={<SingleProduct />} />
+          <Route
+            exact
+            path="/checkout"
+            element={
+              <PrivateRoute>
+                <Checkout />
+              </PrivateRoute>
+            }
+          />
+          <Route exact path="*" element={<Error />} />
+        </Routes>
         <Footer />
       </Router>
     </AuthWrapper>
