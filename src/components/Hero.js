@@ -8,7 +8,7 @@ const Hero = () => {
   return (
     <Wrapper className="section-center">
       <article className="content">
-        <h1>design your coomfort zone</h1>
+        <h1>design your comfort zone</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
